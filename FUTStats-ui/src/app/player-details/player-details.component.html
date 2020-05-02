@@ -1,0 +1,53 @@
+<br>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Home</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+</nav>
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1>{{ playerName }}</h1>
+        <p class="player-details" *ngIf="player">
+            {{ player[0].full_name }}
+            <br>
+        </p>
+    </div>
+</div>
+<br>
+<div class="container">
+    <p-table [columns]="cols" [value]='player'>
+        <ng-template pTemplate="header" let-columns>
+            <tr>
+                <th *ngFor="let col of columns">
+                    {{ col }}
+                </th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-player>
+            <tr>
+                <td> {{ player.k1 }}</td>
+                <td> {{ player.k2 }}</td>
+                <td> {{ player.k3 }}</td>
+                <td> {{ player.k4 }}</td>
+                <td> {{ player.k5 }}</td>
+                <td> {{ player.k6 }}</td>
+            </tr>
+        </ng-template>
+    </p-table>
+    <br>
+    <br>
+    <div class="container">
+        <p-chart type="line" [data]="pcData"></p-chart>
+    </div>
+    <br>
+    <br>
+    <div class="container">
+        <p-chart type="line" [data]="xboxData"></p-chart>
+    </div>
+    <br>
+    <br>
+    <div class="container">
+        <p-chart type="line" [data]="ps4Data"></p-chart>
+    </div>
+</div>

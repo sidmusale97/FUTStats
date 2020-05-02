@@ -1,0 +1,51 @@
+<br>
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Welcome to FUT Stats</h1>
+      </div>
+</div>
+
+<div class ="container-fluid">
+    <p-table #dt [value]="players" [scrollable]="true" [rows]="20" [paginator]="true" [loading]="loading">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Name</th>
+                <th pSortableColumn="full_name">Full Name <p-sortIcon field="full_name"></p-sortIcon></th>
+                <th pSortableColumn="overall">Overall <p-sortIcon field="overall"></p-sortIcon></th>
+                <th>Club</th>
+                <th>League</th>
+                <th>Nation</th>
+                <th>Position</th>
+            </tr>
+            <tr>
+                <th></th>
+                <th><input [style]="{'width':'100%'}" pInputText type="text" (input)="dt.filter($event.target.value,'full_name', 'contains')"></th>
+                <th> Value < {{ overallFilter }}
+                    <i class="pi pi-times" (click)="overallFilter=null;dt.filter(null, 'overall', 'lt')" style="cursor:pointer" *ngIf="overallFilter"></i>
+                    <p-slider [style]="{'width':'100%','margin-top':'8px'}" [(ngModel)]="overallFilter" [min]="50" [max]="99" (onChange)="onOverallChange($event, dt)"></p-slider></th>
+                <th><input [style]="{'width':'100%'}" pInputText type="text" (input)="dt.filter($event.target.value,'club', 'contains')"></th>
+                <th><input [style]="{'width':'100%'}" pInputText type="text" (input)="dt.filter($event.target.value,'league', 'contains')"></th>
+                <th><input [style]="{'width':'100%'}" pInputText type="text" (input)="dt.filter($event.target.value,'nation', 'contains')"></th>
+                <th><p-multiSelect appendTo="body" [style]="{'width':'100%'}" [options]="positions" defaultLabel="All Positions" (onChange)="dt.filter($event.value, 'pos', 'in')"></p-multiSelect></th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-player>
+            <tr [pSelectableRow]="players">
+                <td>
+                    <a routerLink="/players/{{ player.resource_id }}">
+                        {{ player.name }}
+                    </a>
+                </td>
+                <td>{{ player.full_name }}</td>
+                <td>{{ player.overall }}</td>
+                <td>{{ player.club }}</td>
+                <td>{{ player.league }}</td>
+                <td>{{ player.nation }}</td>
+                <td>{{ player.pos }}</td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>
+
+<br>
+<br>
