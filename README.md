@@ -16,3 +16,17 @@ python has some library dependecies as well. Please install all the following li
 flask
 pandas
 ```
+## Running Directions
+1. Open a terminal and navigate to the FUTStats-ui folder and run the following command
+
+```
+ng serve
+```
+
+2. Open another terminal and navigate to the server folder and run the following command
+
+```
+python app.py
+```
+
+3. Open your browser and go to http://localhost:4200 to access the local site
