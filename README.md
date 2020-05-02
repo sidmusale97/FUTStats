@@ -5,7 +5,7 @@ Angular Application that displays FUT 20 player prices and stats
 
 install node\.js from any popular distributions 
 
-node.js requires many modules so please navigate to webform folder and run the following command
+node.js requires many modules so please navigate to FUTStats-ui folder and run the following command
 
 ```
 npm install --save
