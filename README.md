@@ -15,6 +15,7 @@ python has some library dependecies as well. Please install all the following li
 ```
 flask
 pandas
+matplotlib
 ```
 ## Running Directions
 1. Open a terminal and navigate to the FUTStats-ui folder and run the following command
